@@ -32,7 +32,7 @@ brew update
 brew install mysql
 ```
 
-1. インストール完了後、以下のコマンドでバージョンを確認し、正常にインストールされたことを確認します。
+2. インストール完了後、以下のコマンドでバージョンを確認し、正常にインストールされたことを確認します。
 
 ```bash
 mysql --version
@@ -46,7 +46,7 @@ mysql --version
 brew services start mysql
 ```
 
-1. 初期セキュリティ設定（任意・推奨）rootユーザーのパスワード設定などを行う場合は、以下のコマンドを実行し、対話形式で設定を進めます。
+2. 初期セキュリティ設定（任意・推奨）rootユーザーのパスワード設定などを行う場合は、以下のコマンドを実行し、対話形式で設定を進めます。
 
 ```bash
 mysql_secure_installation
@@ -73,13 +73,13 @@ mysql -u root -p
 CREATE DATABASE abema_tv CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 ```
 
-1. 作成されたことの確認
+2. 作成されたことの確認
 
 ```sql
 SHOW DATABASES;
 ```
 
-1. 使用するデータベースの切り替え
+3. 使用するデータベースの切り替え
 
 ```sql
 USE abema_tv;
@@ -251,13 +251,13 @@ JOIN program_genres pg ON p.id = pg.program_id
 JOIN genres g ON pg.genre_id = g.id;
 ```
 
-1. 単発作品（シーズンNULL）を含むエピソード一覧の確認
+2. 単発作品（シーズンNULL）を含むエピソード一覧の確認
 
 ```sql
 SELECT id, title, season_id, episode_number, duration FROM episodes;
 ```
 
-1. 放送スケジュールと視聴数の確認
+3. 放送スケジュールと視聴数の確認
 
 ```sql
 SELECT s.id, c.name AS チャンネル, e.title AS 放送エピソード, s.start_time, s.view_count
