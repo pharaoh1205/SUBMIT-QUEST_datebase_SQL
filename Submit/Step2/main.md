@@ -26,13 +26,13 @@ brew update
 
 ### 2. MySQLのインストール
 
-1. Homebrewを使用してMySQLをインストールします。
+a. Homebrewを使用してMySQLをインストールします。
 
 ```bash
 brew install mysql
 ```
 
-2. インストール完了後、以下のコマンドでバージョンを確認し、正常にインストールされたことを確認します。
+b. インストール完了後、以下のコマンドでバージョンを確認し、正常にインストールされたことを確認します。
 
 ```bash
 mysql --version
@@ -40,13 +40,13 @@ mysql --version
 
 ### 3. MySQLサービスの起動と初期設定
 
-1. MySQLサービスの起動バックグラウンドでMySQLサーバーを起動します。
+a. MySQLサービスの起動バックグラウンドでMySQLサーバーを起動します。
 
 ```bash
 brew services start mysql
 ```
 
-2. 初期セキュリティ設定（任意・推奨）rootユーザーのパスワード設定などを行う場合は、以下のコマンドを実行し、対話形式で設定を進めます。
+b. 初期セキュリティ設定（任意・推奨）rootユーザーのパスワード設定などを行う場合は、以下のコマンドを実行し、対話形式で設定を進めます。
 
 ```bash
 mysql_secure_installation
@@ -67,19 +67,19 @@ mysql -u root -p
 
 学習用・本課題用のデータベースを作成し、使用を宣言します。
 
-1. データベースの作成
+a. データベースの作成
 
 ```sql
 CREATE DATABASE abema_tv CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 ```
 
-2. 作成されたことの確認
+b. 作成されたことの確認
 
 ```sql
 SHOW DATABASES;
 ```
 
-3. 使用するデータベースの切り替え
+c. 使用するデータベースの切り替え
 
 ```sql
 USE abema_tv;
@@ -242,7 +242,7 @@ INSERT INTO channel_schedules (id, channel_id, episode_id, start_time, end_time,
 
 正常にデータが挿入されたことを確認するために、SELECT文を実行します。
 
-1. 番組とジャンルの連携確認
+a. 番組とジャンルの連携確認
 
 ```sql
 SELECT p.title AS 番組名, g.name AS ジャンル
@@ -251,13 +251,13 @@ JOIN program_genres pg ON p.id = pg.program_id
 JOIN genres g ON pg.genre_id = g.id;
 ```
 
-2. 単発作品（シーズンNULL）を含むエピソード一覧の確認
+b. 単発作品（シーズンNULL）を含むエピソード一覧の確認
 
 ```sql
 SELECT id, title, season_id, episode_number, duration FROM episodes;
 ```
 
-3. 放送スケジュールと視聴数の確認
+c. 放送スケジュールと視聴数の確認
 
 ```sql
 SELECT s.id, c.name AS チャンネル, e.title AS 放送エピソード, s.start_time, s.view_count
